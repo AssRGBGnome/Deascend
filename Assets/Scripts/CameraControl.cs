@@ -7,7 +7,7 @@ public class CameraControl : MonoBehaviour
     public Animator CamAnim;
     public GameObject Player;
     private Vector3 _Player;
-    private int level = 1;
+    public int level = 1;
 
     private void Update()
     {

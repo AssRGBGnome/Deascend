@@ -15,16 +15,9 @@ public class PlatformerCharacter2D : MonoBehaviour
     const float k_GroundedRadius = .2f;
     const float k_CeilingRadius = .01f;
     public float lowjumpmultiplier;
-    public float maxVel = 60; //50
-    public float strechtimer = .1f;
 
     private void FixedUpdate()
     {
-        //if(m_Rigidbody2D.velocity.magnitude > maxVel)
-        //{
-        //    Debug.Log(m_Rigidbody2D.velocity.magnitude);
-        //    m_Rigidbody2D.velocity = m_Rigidbody2D.velocity.normalized * maxVel;
-        //}
         m_Grounded = false;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
