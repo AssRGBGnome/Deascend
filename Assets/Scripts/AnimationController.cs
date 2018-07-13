@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     public Animator animator;
+    public Animator sprite;
     public PlatformerCharacter2D platchar;
 
     private void Update()
@@ -26,6 +27,14 @@ public class AnimationController : MonoBehaviour
             animator.SetBool("Air", true);
             animator.SetBool("Idle", false);
             animator.SetBool("Walking", false);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            sprite.SetBool("Rolling", true);
+        }
+        else
+        {
+            sprite.SetBool("Rolling", false);
         }
     }
 }
