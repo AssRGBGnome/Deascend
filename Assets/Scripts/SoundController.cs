@@ -6,9 +6,11 @@ public class SoundController : MonoBehaviour
 {
     public AudioSource JumpAudiorend;
     public AudioSource Ascendrend;
+    public AudioSource Bubborend;
     public AudioClip[] Jumpsounds;
     public AudioClip Ascendsound;
     public AudioClip Descendsound;
+    public AudioClip Bubbogetsound;
     public PlatformerCharacter2D Platchar;
     public Ascender ascender;
 
@@ -32,5 +34,10 @@ public class SoundController : MonoBehaviour
     {
         Ascendrend.clip = Descendsound;
         Ascendrend.Play();
+    }
+    public void PlayBubboGetSound()
+    {
+        Bubborend.clip = Bubbogetsound;
+        Bubborend.Play();
     }
 }

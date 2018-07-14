@@ -15,6 +15,10 @@ public class Platformer2DUserControl : MonoBehaviour
         {
             float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
             m_Jump = CrossPlatformInputManager.GetButtonDown("Jump"); 
+            if (Input.GetKey(KeyCode.R))
+            {
+                SceneManager.LoadScene(0);
+            }
             if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && h != 1 && h != -1)
             {
                 m_Character.m_JumpForce = nonmovejumpforce;

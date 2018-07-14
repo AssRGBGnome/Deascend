@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Slope
+  - Bubbo
   layers:
   - Default
   - TransparentFX
