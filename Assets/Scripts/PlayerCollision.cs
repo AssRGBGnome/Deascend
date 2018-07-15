@@ -13,11 +13,12 @@ public class PlayerCollision : MonoBehaviour
 
     private void Update()
     {
-        //Want it to mute on default for builds
+        //to mute on default for builds
         if(mute == true)
         {
             AudioListener.volume = 0;
         }
+        Cursor.visible = false;
         currentlevel = CameraCon.level;
         if (Input.GetKeyDown(KeyCode.Period))
         {

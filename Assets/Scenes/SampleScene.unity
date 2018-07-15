@@ -6024,9 +6024,4 @@ MonoBehaviour:
   - {fileID: 616910534}
   Bubble: {fileID: 2095791852}
   A_Bubble: {fileID: 2095791855}
-  Audiosrc:
-  - {fileID: 1237838027}
-  - {fileID: 868346713}
-  - {fileID: 1124657791}
-  - {fileID: 765530057}
   CameraCon: {fileID: 519420030}
