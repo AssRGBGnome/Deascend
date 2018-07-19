@@ -17,6 +17,12 @@ public class CameraControl : MonoBehaviour
 
     private void CameraChange()
     {
+        if (_Player.x >= -106.2 && _Player.x <= -35.6 && _Player.y >= -20 && _Player.y <= 20)
+        {
+            Debug.Log("Farts and stuff are cool tyo! You in 0.");
+            CamAnim.SetInteger("Level", 0);
+            level = 0;
+        }
         if (_Player.x >= -35.6 && _Player.x <= 35.6 && _Player.y >= -20 && _Player.y <= 20)
         {
             Debug.Log("Farts and stuff are cool tyo! You in 1.");

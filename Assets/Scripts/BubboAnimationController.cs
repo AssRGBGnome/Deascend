@@ -6,6 +6,7 @@ public class BubboAnimationController : MonoBehaviour
 {
     public Animator BubboAnimator;
     public SoundController SoundC;
+    public GameObject Door0;
 
     void Fadein()
     {
@@ -22,6 +23,11 @@ public class BubboAnimationController : MonoBehaviour
     void PlayGetSound()
     {
         SoundC.PlayBubboGetSound();
+    }
+
+    void OpenDoor0()
+    {
+        Door0.SetActive(false);
     }
 
     //void SpawnParticle()
