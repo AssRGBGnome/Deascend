@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationController : MonoBehaviour
+public class AnimatorController : MonoBehaviour
 {
     public Animator animator;
     public Animator sprite;
@@ -28,7 +28,7 @@ public class AnimationController : MonoBehaviour
             animator.SetBool("Idle", false);
             animator.SetBool("Walking", false);
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || (Input.GetButton("Jump")))
         {
             sprite.SetBool("Rolling", true);
         }

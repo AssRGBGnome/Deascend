@@ -86,9 +86,13 @@ public class PlayerCollision : MonoBehaviour
         {
             A_Bubble[0].SetBool("GetBubble", true);
         }
-        if(other.gameObject == Bubble[1])
+        if (other.gameObject == Bubble[1])
         {
             A_Bubble[1].SetBool("GetBubble", true);
+        }
+        if (other.gameObject == Bubble[2])
+        {
+            A_Bubble[2].SetBool("GetBubble", true);
         }
     }
 }
