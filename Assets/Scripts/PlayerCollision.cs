@@ -11,7 +11,7 @@ public class PlayerCollision : MonoBehaviour
     public Animator[] A_Bubble;
     public CameraControl CameraCon;
     private int currentlevel = 1;
-    private bool muteMusic = false;
+    private bool muteMusic = true;
     private bool muteSFX = false;
 
     private void Update()
