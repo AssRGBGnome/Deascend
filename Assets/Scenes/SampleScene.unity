@@ -7302,6 +7302,7 @@ MonoBehaviour:
   m_Rigidbody2D: {fileID: 2143947745}
   m_Grounded: 0
   lowjumpmultiplier: 5
+  MaxVel: 50
 --- !u!50 &2143947745
 Rigidbody2D:
   serializedVersion: 4

@@ -15,6 +15,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     const float k_GroundedRadius = .2f;
     const float k_CeilingRadius = .01f;
     public float lowjumpmultiplier;
+    public float MaxVel = 50f;
 
     private void FixedUpdate()
     {
@@ -28,6 +29,10 @@ public class PlatformerCharacter2D : MonoBehaviour
         if (m_Rigidbody2D.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce *-(lowjumpmultiplier) * Time.deltaTime));
+        }
+        if (m_Rigidbody2D.velocity.y > MaxVel)
+        {
+            m_Rigidbody2D.velocity = Vector2.ClampMagnitude(m_Rigidbody2D.velocity, MaxVel);
         }
     }
 

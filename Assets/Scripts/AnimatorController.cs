@@ -7,16 +7,16 @@ public class AnimatorController : MonoBehaviour
     public Animator animator;
     public Animator sprite;
     public PlatformerCharacter2D platchar;
-
+    
     private void Update()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && platchar.m_Grounded == true)
+        if (Input.GetAxis("Horizontal") >= .9f || Input.GetAxis("Horizontal") <= -.9f && platchar.m_Grounded == true)
         {
             animator.SetBool("Idle", false);
             animator.SetBool("Walking", true);
             animator.SetBool("Air", false);
         }
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && platchar.m_Grounded == true)
+        else
         {
             animator.SetBool("Idle", true);
             animator.SetBool("Walking", false);
