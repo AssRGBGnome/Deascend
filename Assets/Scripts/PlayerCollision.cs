@@ -5,12 +5,17 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public Transform[] Levelskipositions;
+    public Transform[] Checkpointpositions;
     public GameObject[] Bubble;
+    public GameObject[] Needle;
     public AudioSource Music;
     public AudioSource[] SFX;
     public Animator[] A_Bubble;
+    public Animator Playeranim;
+    public Rigidbody2D rbtwod;
     public CameraControl CameraCon;
     private int currentlevel = 1;
+    private int currentcheckpoint = 0;
     private bool muteMusic = false;
     private bool muteSFX = false;
 
@@ -82,7 +87,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject == Bubble[0])
+        if (other.gameObject == Bubble[0])
         {
             A_Bubble[0].SetBool("GetBubble", true);
         }
@@ -94,5 +99,35 @@ public class PlayerCollision : MonoBehaviour
         {
             A_Bubble[2].SetBool("GetBubble", true);
         }
+
+        if (other.gameObject == Needle[0])
+        {
+            Debug.Log("You Dead!");
+            Playeranim.SetBool("Death", true);
+        }
+    }
+
+    private void Death()
+    {
+        if(currentcheckpoint == 0)
+        {
+            rbtwod.constraints = RigidbodyConstraints2D.None;
+            transform.localScale = new Vector3(3, 3, 1);
+            transform.position = Checkpointpositions[0].transform.position;
+            Playeranim.SetBool("Respawn", true);
+            Playeranim.SetBool("Death", false);
+            Debug.Log("Safe tyo!");
+        }
+    }
+
+    private void Freeze()
+    {
+        Playeranim.SetBool("Respawn", false);
+        rbtwod.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    private void StopRespawnAnim()
+    {
+        Playeranim.SetBool("Respawn", false);
     }
 }
