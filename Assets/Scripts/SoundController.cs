@@ -5,9 +5,13 @@ using UnityEngine;
 public class SoundController : MonoBehaviour
 {
     public AudioSource JumpAudiorend;
+    public AudioSource DeathAudiorend;
+    public AudioSource RespawnAudiorend;
     public AudioSource Ascendrend;
     public AudioSource Bubborend;
     public AudioClip[] Jumpsounds;
+    public AudioClip Deathsound;
+    public AudioClip Respawnsound;
     public AudioClip Ascendsound;
     public AudioClip Descendsound;
     public AudioClip Bubbogetsound;
@@ -46,5 +50,15 @@ public class SoundController : MonoBehaviour
     {
         Bubborend.clip = Bubbogetsound;
         Bubborend.Play();
+    }
+    public void PlayDeathSound()
+    {
+        DeathAudiorend.clip = Deathsound;
+        DeathAudiorend.Play();
+    }
+    public void PlayRespawnSound()
+    {
+        RespawnAudiorend.clip = Respawnsound;
+        RespawnAudiorend.Play();
     }
 }

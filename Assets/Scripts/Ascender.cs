@@ -9,6 +9,7 @@ public class Ascender : MonoBehaviour
     public SoundController SoundC;
     public Animator Ascend1;
     public Animator Ascend2;
+    public Animator Ascend3;
     public int level = 1;
     public int floor = 1;
 
@@ -44,6 +45,21 @@ public class Ascender : MonoBehaviour
             {
                 floor = 1;
                 Ascend2.SetInteger("floor", 1);
+                SoundC.PlayDescendSound();
+            }
+        }
+        if(level == 3)
+        {
+            if (Input.GetButton("Descend") && floor != 2)
+            {
+                floor = 2;
+                Ascend3.SetInteger("floor", 2);
+                SoundC.PlayAscendSound();
+            }
+            if (Input.GetButton("Ascend") && floor != 1)
+            {
+                floor = 1;
+                Ascend3.SetInteger("floor", 1);
                 SoundC.PlayDescendSound();
             }
         }

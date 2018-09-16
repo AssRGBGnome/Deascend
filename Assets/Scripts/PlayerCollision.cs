@@ -14,10 +14,11 @@ public class PlayerCollision : MonoBehaviour
     public Animator Playeranim;
     public Rigidbody2D rbtwod;
     public CameraControl CameraCon;
+    public SoundController SoundCon;
     private int currentlevel = 1;
     private int currentcheckpoint = 0;
-    private bool muteMusic = false;
-    private bool muteSFX = false;
+    private bool muteMusic = true;
+    private bool muteSFX = true;
 
     private void Update()
     {
@@ -100,7 +101,7 @@ public class PlayerCollision : MonoBehaviour
             A_Bubble[2].SetBool("GetBubble", true);
         }
 
-        if (other.gameObject == Needle[0])
+        if (other.gameObject.tag == "Needle")
         {
             Debug.Log("You Dead!");
             Playeranim.SetBool("Death", true);
@@ -124,6 +125,7 @@ public class PlayerCollision : MonoBehaviour
     {
         Playeranim.SetBool("Respawn", false);
         rbtwod.constraints = RigidbodyConstraints2D.FreezeAll;
+        SoundCon.PlayDeathSound();
     }
 
     private void StopRespawnAnim()
