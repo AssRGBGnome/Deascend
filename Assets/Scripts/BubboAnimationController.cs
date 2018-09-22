@@ -35,6 +35,11 @@ public class BubboAnimationController : MonoBehaviour
         Door[1].SetActive(false);
     }
 
+    void OpenDoor2()
+    {
+        Door[0].SetActive(false);
+    }
+
     //void SpawnParticle()
     //{
     //    Instantiate(Particle, transform.position, Quaternion.identity);

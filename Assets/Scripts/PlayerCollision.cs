@@ -100,6 +100,10 @@ public class PlayerCollision : MonoBehaviour
         {
             A_Bubble[2].SetBool("GetBubble", true);
         }
+        if (other.gameObject == Bubble[3])
+        {
+            A_Bubble[3].SetBool("GetBubble", true);
+        }
 
         if (other.gameObject.tag == "Needle")
         {
