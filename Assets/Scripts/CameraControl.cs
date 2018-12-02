@@ -35,11 +35,17 @@ public class CameraControl : MonoBehaviour
             CamAnim.SetInteger("Level", 2);
             level = 2;
         }
-        else if(_Player.x >= 106.7 && _Player.x <= 177.8 && _Player.y >= -20 && _Player.y <= 20)
+        else if (_Player.x >= 106.7 && _Player.x <= 177.8 && _Player.y >= -20 && _Player.y <= 20)
         {
             Debug.Log("Farts and stuff are cool tyo! You in 3.");
             CamAnim.SetInteger("Level", 3);
             level = 3;
+        }
+        else if (_Player.x >= 177.73 && _Player.x <= 248.83 && _Player.y >= -20 && _Player.y <= 20)
+        {
+            Debug.Log("Farts and stuff are cool tyo! You in 4.");
+            CamAnim.SetInteger("Level", 4);
+            level = 4;
         }
     }
 }

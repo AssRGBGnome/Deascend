@@ -44,7 +44,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             if (move > 0 && !m_FacingRight) { Flip(); }
             else if (move < 0 && m_FacingRight) { Flip(); }
         }
-        if (m_Grounded && jump)
+        if (m_Grounded && jump && transform.localScale.x > 2.5f)
         {
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));

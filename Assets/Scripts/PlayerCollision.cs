@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -13,12 +14,15 @@ public class PlayerCollision : MonoBehaviour
     public Animator[] A_Bubble;
     public Animator Playeranim;
     public Rigidbody2D rbtwod;
+    public Platformer2DUserControl PlatUserCon2D;
     public CameraControl CameraCon;
     public SoundController SoundCon;
+    private float Vibrate = .75f;
     private int currentlevel = 1;
     private int currentcheckpoint = 0;
     private bool muteMusic = true;
-    private bool muteSFX = true;
+    private bool muteSFX = false;
+    private bool deathvibrate = false;
 
     private void Update()
     {
@@ -33,6 +37,15 @@ public class PlayerCollision : MonoBehaviour
             {
                 SFX[i].mute = true;
             }
+        }
+        if(deathvibrate == true)
+        {
+            Vibrate -= Time.deltaTime;
+            if(Vibrate > 0)
+            {
+                GamePad.SetVibration(PlayerIndex.One, 1f, 0f);
+            }
+            else { Vibrate = .75f; GamePad.SetVibration(PlayerIndex.One, 0f, 0f); deathvibrate = false; }
         }
         Cursor.visible = false;
         currentlevel = CameraCon.level;
@@ -50,7 +63,7 @@ public class PlayerCollision : MonoBehaviour
             currentlevel -= 1;
             if(currentlevel < 1)
             {
-                currentlevel += 1;
+                currentlevel += 1;  
             }
             transform.position = Levelskipositions[currentlevel - 1].transform.position;
         }
@@ -104,17 +117,17 @@ public class PlayerCollision : MonoBehaviour
         {
             A_Bubble[3].SetBool("GetBubble", true);
         }
-
         if (other.gameObject.tag == "Needle")
         {
             Debug.Log("You Dead!");
             Playeranim.SetBool("Death", true);
+            deathvibrate = true;
         }
     }
 
     private void Death()
     {
-        if(currentcheckpoint == 0)
+        if (currentcheckpoint == 0)
         {
             rbtwod.constraints = RigidbodyConstraints2D.None;
             transform.localScale = new Vector3(3, 3, 1);

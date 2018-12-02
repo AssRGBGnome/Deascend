@@ -20,13 +20,13 @@ public class SoundController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Platchar.m_Grounded == true)
-        {
-            int j = Random.Range(0, Jumpsounds.Length);
-            JumpAudiorend.clip = Jumpsounds[j];
-            JumpAudiorend.PlayOneShot(Jumpsounds[j], 0.5f);
-            Debug.Log(j);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && Platchar.m_Grounded == true)
+        //{
+        //    int j = Random.Range(0, Jumpsounds.Length);
+        //    JumpAudiorend.clip = Jumpsounds[j];
+        //    JumpAudiorend.PlayOneShot(Jumpsounds[j], 0.5f);
+        //    Debug.Log(j);
+        //}
         if (Input.GetButtonDown("Jump") && Platchar.m_Grounded == true)
         {
             int j = Random.Range(0, Jumpsounds.Length);
